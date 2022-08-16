@@ -32,3 +32,5 @@ create table OrderDetail (
     foreign key (oID) references `Order`(oID),
     foreign key (pID) references Product(pID)
 );
+
+alter table orderDetail add primary key(oID,pID);
