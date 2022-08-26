@@ -29,7 +29,7 @@ insert into employes values
  "hoangtong@gmail.com", "213 Hàm Nghi, Đà Nẵng", 2, 4, 4),
   (10, "Nguyễn Công Đào", "1994-01-08", "755434434", 8000000, "0988767111",
  "nguyencongdao12@gmail.com", "6 Hòa Khánh", 2, 3, 2);
- 
+
  insert into type_customer values (1, "Diamond"),(2, "Platinium"),
  (3, "Gold"), (4, "Silver"), (5,"Member");
  
@@ -94,6 +94,7 @@ insert into employes values
 (10, "2021-04-12","2021-04-14",0,3,10,5),
 (11, "2021-04-25","2021-04-25",0,2,2,1),
 (12, "2021-05-25","2021-05-27",0,10,7,1);
+-- SET FOREIGN_KEY_CHECKS=0;
 
 insert into details_contract values
 (1,2,4,5),(2,2,5,8),(3,2,6,15),(4,3,1,1),
