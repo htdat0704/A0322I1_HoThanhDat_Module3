@@ -348,7 +348,8 @@ delimiter ;
 
 call sp_xoa_dich_vu_va_hd_room();
 
-insert into service values (7,"test 1 ",92929,12312,30,2923,12,"no","vip",3,2),
+insert into service values 
+(7,"test 1 ",92929,12312,30,2923,12,"no","vip",3,2),
 (8,"test 2 ",92929,12312,30,2923,12,"no","vip",3,1),
 (9,"test 3 ",92929,12312,30,2923,12,"no","vip",3,3);
 
