@@ -53,11 +53,47 @@
         .center {
             width: 50% ; padding: 10px
         }
+        .flex-d {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+        }
+
+        @media screen and (max-width: 992px) {
+            .sidebar h2 {
+                padding: 50px;
+            }
+
+        }
+
+        @media screen and (max-width: 600px) {
+
+            header div h3 {
+                margin-left: 0;
+            }
+            .sidebar h2 {
+                padding: 30px;
+            }
+            header {
+                flex-direction: column;
+                display: flex;
+
+            }
+            .flex-d, .header, header ul {
+                display: block;
+            }
+
+        }
+
+
     </style>
 </head>
 <body>
 <header>
-    <div style="display: flex; align-items: center; ">
+    <div class="header" >
         <h2 style="margin-left: 20px">LOGO</h2>
         <ul>
             <li>Home</li>
@@ -70,7 +106,7 @@
 
 </header>
 
-<div style="display: flex; margin-bottom: 10px">
+<div class="flex-d" >
     <div class="sidebar">
         <a href="#">Link</a>
         <a href="#">Link</a>
