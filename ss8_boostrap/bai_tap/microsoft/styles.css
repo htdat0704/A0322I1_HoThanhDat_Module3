@@ -1,0 +1,138 @@
+body {
+    background-color: #f2f2f2
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 220px;
+}
+
+.flex-column span {
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.flex-computers {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.flex-business {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.accessories li {
+    padding: 20px;
+    cursor: pointer;
+}
+
+.dropdown-menu{
+    background-color: #e6e6e6;
+}
+
+.d-flex div {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.d-flex {
+    margin-right: 50px;
+}
+
+.nav-item:hover, .flex-column span:hover, .dropdown-menu li:hover, div a:hover {
+    text-decoration: underline; !important;
+}
+
+.banner:hover {
+    cursor: pointer;
+    text-decoration-color: white;
+    text-decoration: underline;
+    color: white;
+}
+
+.banner {
+    color: white;
+    text-decoration: none;
+}
+
+.content-right-ref {
+    color: blue;
+    text-decoration: none;
+    margin-right: 12px;
+}
+
+.content-right-ref:hover {
+    cursor: pointer;
+    text-decoration-color: white;
+    text-decoration: underline;
+    color: blue;
+}
+
+.flex-create-container {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-flex-create-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-2in1-pc {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.flex-2in1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-dual-all {
+    margin-top: 84px;
+    display: flex;
+    width: 100%;
+}
+
+.items-dual-all {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.flex-near-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.items-near-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.a-near-footer {
+    color: blue;
+    margin-right: 12px;
+    font-size: 10px;
+}
+
+.banner-near-footer {
+    background-color: #2f2f2f;
+    margin-top: 84px;
+    padding: 20px;
+    color: #ffffff;
+    font-size: 10px;
+}
