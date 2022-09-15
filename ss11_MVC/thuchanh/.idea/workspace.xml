@@ -20,29 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a610e18d-af29-4146-841c-5c6c020e8e72" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/CustomerServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/CustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/CustomerServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/view/customer/create.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/view/customer/detail.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/view/customer/edit.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/view/customer/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ss10_JSTL/bai_tap/calculator/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss10_JSTL/bai_tap/calculator/.gradle/6.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ss10_JSTL/bai_tap/calculator/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss10_JSTL/bai_tap/calculator/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ss10_JSTL/bai_tap/calculator/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss10_JSTL/bai_tap/calculator/.gradle/6.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ss10_JSTL/bai_tap/calculator/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss10_JSTL/bai_tap/calculator/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ss10_JSTL/bai_tap/calculator/.gradle/6.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss10_JSTL/bai_tap/calculator/.gradle/6.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ss10_JSTL/bai_tap/calculator/.gradle/6.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss10_JSTL/bai_tap/calculator/.gradle/6.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ss10_JSTL/bai_tap/calculator/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss10_JSTL/bai_tap/calculator/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ss10_JSTL/bai_tap/calculator/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss10_JSTL/bai_tap/calculator/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ss10_JSTL/bai_tap/calculator/build/classes/java/main/CalServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss10_JSTL/bai_tap/calculator/build/classes/java/main/CalServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ss10_JSTL/bai_tap/calculator/build/libs/calculator-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss10_JSTL/bai_tap/calculator/build/libs/calculator-1.0-SNAPSHOT.war" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../baitap/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../baitap/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../baitap/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../baitap/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../baitap/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../baitap/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../baitap/src/main/java/bean/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../baitap/src/main/webapp/WEB-INF/views/products/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../baitap/src/main/webapp/WEB-INF/views/products/detail.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../baitap/src/main/webapp/WEB-INF/views/products/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../baitap/src/main/webapp/WEB-INF/views/products/update.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/customer/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/customer/list.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,6 +183,7 @@
       <updated>1663077687199</updated>
       <workItem from="1663077691078" duration="3671000" />
       <workItem from="1663165002946" duration="2127000" />
+      <workItem from="1663235076465" duration="538000" />
     </task>
     <servers />
   </component>
@@ -220,6 +211,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1663077842508" />
+    <state x="462" y="118" key="FileChooserDialogImpl" timestamp="1663235458672">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="462" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1663235458672" />
     <state width="905" height="226" key="GridCell.Tab.0.bottom" timestamp="1663167150150">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -292,6 +287,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="124" key="extract.method.dialog/0.0.1366.728@0.0.1366.728" timestamp="1663081385015" />
+    <state x="65" y="0" key="new project wizard" timestamp="1663235459681">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1663235459681" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1663079549608">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
