@@ -60,7 +60,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void addUserTransaction(User user, int[] permision) {
+    public void addUserTransaction(User user, int[] permision) throws SQLException {
         repository.addUserTransaction(user,permision);
     }
 

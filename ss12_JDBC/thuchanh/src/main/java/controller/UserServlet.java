@@ -142,7 +142,7 @@ public class UserServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/list.jsp");
         dispatcher.forward(request, response);
     }
-    private void addUserPermision(HttpServletRequest request, HttpServletResponse response) {
+    private void addUserPermision(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         User user = new User("quan", "quan.nguyen@codegym.vn", "vn");
         int[] permision = {1, 2, 4};
         userService.addUserTransaction(user, permision);

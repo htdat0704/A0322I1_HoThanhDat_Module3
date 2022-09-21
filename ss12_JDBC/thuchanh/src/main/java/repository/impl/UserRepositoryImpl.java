@@ -220,7 +220,7 @@ public class UserRepositoryImpl implements UserRepository {
         List<User> output = new ArrayList<>();
         try (
             Connection connection = getConnection();
-            PreparedStatement statement = connection.prepareStatement(SELECT_ALL_USERS);
+            PreparedStatement statement = connection.prepareStatement(FIND_BY_COUNTRY);
             ){
             statement.setString(1,"%" + country + "%");
             ResultSet rs = statement.executeQuery();
