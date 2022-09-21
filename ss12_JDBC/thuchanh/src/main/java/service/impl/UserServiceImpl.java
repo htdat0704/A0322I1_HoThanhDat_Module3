@@ -40,6 +40,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User getById(int id) {
+        return repository.getById(id);
+    }
+
+    @Override
+    public void insertStore(User user) {
+        repository.insertStore(user);
+    }
+
+    @Override
     public List<User> findByCountry(String country) {
         return repository.findByCountry(country);
     }
@@ -47,5 +57,25 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> sortByName() {
         return repository.sortByName();
+    }
+
+    @Override
+    public void addUserTransaction(User user, int[] permision) {
+        repository.addUserTransaction(user,permision);
+    }
+
+    @Override
+    public List<User> showAllUsersProcedure() {
+        return repository.showAllUsersProcedure();
+    }
+
+    @Override
+    public void editUserProcedure(User user) {
+        repository.editUserProcedure(user);
+    }
+
+    @Override
+    public void deleteUserProcedure(int id) {
+        repository.deleteUserProcedure(id);
     }
 }

@@ -5,6 +5,7 @@ import repository.UserRepository;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class UserRepositoryImpl implements UserRepository {
@@ -128,6 +129,76 @@ public class UserRepositoryImpl implements UserRepository {
         return rowUpdated;
     }
 
+    @Override
+    public User getById(int id) {
+        User user = null;
+
+        String query = "{CALL get_user_by_id(?)}";
+
+        // Step 1: Establishing a Connection
+
+        try (Connection connection = getConnection();
+
+             // Step 2:Create a statement using connection object
+
+             CallableStatement callableStatement = connection.prepareCall(query);) {
+
+            callableStatement.setInt(1, id);
+
+            // Step 3: Execute the query or update query
+
+            ResultSet rs = callableStatement.executeQuery();
+
+            // Step 4: Process the ResultSet object.
+
+            while (rs.next()) {
+
+                String name = rs.getString("name");
+
+                String email = rs.getString("email");
+
+                String country = rs.getString("country");
+
+                user = new User(id, name, email, country);
+
+            }
+
+        } catch (SQLException e) {
+
+            printSQLException(e);
+
+        }
+
+        return user;
+    }
+
+    @Override
+    public void insertStore(User user) {
+        String query = "{CALL insert_user(?,?,?)}";
+
+        // try-with-resource statement will auto close the connection.
+
+        try (Connection connection = getConnection();
+
+             CallableStatement callableStatement = connection.prepareCall(query);) {
+
+            callableStatement.setString(1, user.getName());
+
+            callableStatement.setString(2, user.getEmail());
+
+            callableStatement.setString(3, user.getCountry());
+
+            System.out.println(callableStatement);
+
+            callableStatement.executeUpdate();
+
+        } catch (SQLException e) {
+
+            printSQLException(e);
+
+        }
+    }
+
     private void printSQLException(SQLException ex) {
         for (Throwable e : ex) {
             if (e instanceof SQLException) {
@@ -188,5 +259,128 @@ public class UserRepositoryImpl implements UserRepository {
             throwables.printStackTrace();
         }
         return users;
+    }
+
+    @Override
+    public void addUserTransaction(User user, int[] permision) throws SQLException {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        PreparedStatement pstmtAssignment = null;
+        ResultSet rs = null;
+        try {
+            conn = getConnection();
+            conn.setAutoCommit(false);
+            pstmt = conn.prepareStatement(INSERT_USERS_SQL, Statement.RETURN_GENERATED_KEYS);
+            pstmt.setString(1, user.getName());
+            pstmt.setString(2, user.getEmail());
+            pstmt.setString(3, user.getCountry());
+
+            pstmt = conn.prepareStatement(INSERT_USERS_SQL);
+            pstmt.setString(1, "admin");
+            pstmt.setString(2, "abc@gmail.com");
+            pstmt.setString(3, "mail.com");
+
+            if(user.getName().equals("admin")){
+                throw new Exception("Name invalid");
+            }
+            int rowAffected = pstmt.executeUpdate();
+            rs = pstmt.getGeneratedKeys();
+            int userId = 0;
+            if (rs.next())
+                userId = rs.getInt(1);
+            if (rowAffected == 1) {
+                String sqlPivot = "INSERT INTO user_permision(user_id,permision_id) "
+                        + "VALUES(?,?)";
+                pstmtAssignment = conn.prepareStatement(sqlPivot);
+                for (int permisionId : permision) {
+                    pstmtAssignment.setInt(1, userId);
+                    pstmtAssignment.setInt(2, permisionId);
+                    pstmtAssignment.executeUpdate();
+                }
+                conn.commit();
+            } else {
+                conn.rollback();
+            }
+        } catch (SQLException ex) {
+            // roll back the transaction
+            try {
+                if (conn != null)
+                    conn.rollback();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+            System.out.println(ex.getMessage());
+        } catch (Exception e) {
+            conn.rollback();
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (pstmt != null) pstmt.close();
+                if (pstmtAssignment != null) pstmtAssignment.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    @Override
+    public List<User> showAllUsersProcedure() {
+        List<User> uotput = new LinkedList<>();
+        String sql = "{call showAllUsers()}";
+        try(
+                Connection connection = getConnection();
+                CallableStatement callable = connection.prepareCall(sql);
+                ResultSet rs = callable.executeQuery();
+                ){
+            while (rs.next()){
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String email = rs.getString("email");
+                String country = rs.getString("country");
+                uotput.add(new User(id, name, email, country));
+            }
+        }catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return uotput;
+    }
+
+    @Override
+    public void editUserProcedure(User user) {
+        String sql = "{call updateUser(?,?,?,?)}";
+        try(
+                Connection connection = getConnection();
+                CallableStatement callable = connection.prepareCall(sql);
+                ) {
+            callable.setInt(1, user.getId());
+            callable.setString(2, user.getName());
+            callable.setString(3, user.getEmail());
+            callable.setString(4, user.getCountry());
+            ResultSet rs = callable.executeQuery();
+            if(rs != null){
+                rs.close();
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public void deleteUserProcedure(int id) {
+        String sql = "{call deleteUser(?)}";
+        try(
+                Connection connection = getConnection();
+                CallableStatement callable = connection.prepareCall(sql);
+        ) {
+            callable.setInt(1, id);
+            ResultSet rs = callable.executeQuery();
+            if(rs != null){
+                rs.close();
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 }
