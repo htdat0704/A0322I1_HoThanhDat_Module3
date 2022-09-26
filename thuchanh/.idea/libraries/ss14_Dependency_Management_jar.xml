@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="ss14_Dependency_Management_jar">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../ss14_Dependency_Management/out/artifacts/ss14_Dependency_Management_jar" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/../ss14_Dependency_Management/out/artifacts/ss14_Dependency_Management_jar" recursive="false" />
+  </library>
+</component>

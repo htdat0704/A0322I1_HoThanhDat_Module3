@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ss14_Dependency_Management:jar2">
+    <output-path>$PROJECT_DIR$/out/artifacts/ss14_Dependency_Management_jar2</output-path>
+    <root id="archive" name="ss14_Dependency_Management.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/../ss14_Dependency_Managemen/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="ss14_Dependency_Management" />
+    </root>
+  </artifact>
+</component>
