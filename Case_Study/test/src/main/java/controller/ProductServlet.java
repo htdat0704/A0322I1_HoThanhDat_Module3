@@ -67,6 +67,14 @@ public class ProductServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         String success = request.getParameter("success");
+        String pageAsString = request.getParameter("page");
+        int page = 1;
+        int resultPerPage = 10;
+        if(pageAsString == null){
+            page = 1;
+        }else {
+            page = Integer.parseInt(pageAsString);
+        }
         if(success == null){
             success = "";
         }else {
@@ -137,7 +145,9 @@ public class ProductServlet extends HttpServlet {
                 break;
             default:
                 try {
-                    request.setAttribute("products",productService.findAll());
+                    request.setAttribute("totalPage", productService.findTotalPage(resultPerPage));
+                    request.setAttribute("products", productService.findAllProductPagination(page, resultPerPage));
+//                    request.setAttribute("products",productService.findAll());
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 } catch (ClassNotFoundException e) {

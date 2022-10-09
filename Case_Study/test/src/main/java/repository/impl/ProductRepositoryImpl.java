@@ -146,7 +146,7 @@ public class ProductRepositoryImpl implements ProductRepository {
         List<Product> products = new LinkedList<>();
         try(
                 Connection connection = ConnectionUtil.getConnection();
-                PreparedStatement ps = connection.prepareStatement(Constants.FIND_BY_NAME);
+                PreparedStatement ps = connection.prepareStatement(Constants.FIND_BY_PRICE);
         ){
             ps.setDouble(1,price);
             ResultSet rs = ps.executeQuery();
@@ -184,5 +184,57 @@ public class ProductRepositoryImpl implements ProductRepository {
             }
         }
         return products;
+    }
+
+    @Override
+    public List<Product> findAllProductPagination(int page, int resultPerPage) throws SQLException, ClassNotFoundException {
+        ProductRepository productRepository = new ProductRepositoryImpl();
+        int totalPage = productRepository.findTotalPage(resultPerPage);
+        if(page > totalPage) {
+            page = totalPage;
+        }
+        if(page < 1) {
+            page = 1;
+        }
+        List<Product> products = new LinkedList<>();
+        int skip = resultPerPage * (page - 1);
+        try(
+                Connection connection = ConnectionUtil.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(Constants.SELECT_PRODUCT_PAGINATION);
+                ){
+            preparedStatement.setInt(1,skip);
+            preparedStatement.setInt(2,resultPerPage);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()){
+                int id = rs.getInt("id");
+                String nameSearch = rs.getString("name");
+                int quantity = rs.getInt("quantity");
+                double price = rs.getDouble("price");
+                String color = rs.getString("color");
+                String description = rs.getString("description");
+                int idCategory = rs.getInt("id_category");
+                products.add(new Product(id,nameSearch,price,quantity,color,description,idCategory));
+            }
+        }
+        return products;
+    }
+
+    @Override
+    public int findTotalPage(int resultPerPage) throws SQLException, ClassNotFoundException {
+        int output = 0;
+        try(
+                Connection connection = ConnectionUtil.getConnection();
+                PreparedStatement ps = connection.prepareStatement(Constants.SELECT_COUNT_PRODUCT);
+                ResultSet rs = ps.executeQuery();
+                ){
+            while (rs.next()){
+                output = rs.getInt("count(1)");
+            }
+
+        }
+        if(resultPerPage%output == 0){
+            return output/resultPerPage;
+        }
+        return  ((int) output/resultPerPage) +1;
     }
 }

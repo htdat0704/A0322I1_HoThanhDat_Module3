@@ -91,6 +91,13 @@
                                     </c:forEach>
                                 </tbody>
                             </table>
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <c:forEach var="i" begin="1" end="${totalPage}">
+                                        <li class="page-item"><a class="page-link" href="/product?page=${i}">${i}</a></li>
+                                    </c:forEach>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>

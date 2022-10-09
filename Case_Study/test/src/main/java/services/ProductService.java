@@ -12,4 +12,7 @@ public interface ProductService extends CRUDService<Product>{
     List<Product> findByName(String name) throws SQLException, ClassNotFoundException;
     List<Product> findByPrice(double price) throws SQLException, ClassNotFoundException;
     List<Product> findByNameAndPrice(String name, double price)throws SQLException, ClassNotFoundException;
+
+    List<Product> findAllProductPagination(int page, int resultPerPage) throws SQLException, ClassNotFoundException;
+    int findTotalPage(int resultPerPage) throws SQLException, ClassNotFoundException;
 }

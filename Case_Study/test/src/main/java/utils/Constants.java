@@ -6,7 +6,9 @@ public interface Constants {
 
     String SELECT_CATEGORY = "SELECT * FROM category ";
     String SELECT_PRODUCT = "SELECT * FROM product ";
+    String SELECT_PRODUCT_PAGINATION = "SELECT * FROM product limit ?,? ";
     String SELECT_PRODUCT_BY_ID = "SELECT * FROM product where id = ? ";
+    String SELECT_COUNT_PRODUCT = "select count(1) from product";
 
     String UPDATE_PRODUCT = "update product set name = ?, price = ?" +
             ", quantity = ?, color = ?, description = ?, id_category =? where id = ?";

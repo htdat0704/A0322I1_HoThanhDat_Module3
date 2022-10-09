@@ -57,4 +57,14 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> findByNameAndPrice(String name, double price) throws SQLException, ClassNotFoundException {
         return productRepository.findByNameAndPrice(name,price);
     }
+
+    @Override
+    public List<Product> findAllProductPagination(int page, int resultPerPage) throws SQLException, ClassNotFoundException {
+        return productRepository.findAllProductPagination(page,resultPerPage);
+    }
+
+    @Override
+    public int findTotalPage(int resultPerPage) throws SQLException, ClassNotFoundException {
+        return productRepository.findTotalPage(resultPerPage);
+    }
 }
