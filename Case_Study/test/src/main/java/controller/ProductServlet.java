@@ -43,7 +43,7 @@ public class ProductServlet extends HttpServlet {
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }
-                response.sendRedirect("/product?success=true");
+                response.sendRedirect("/product?success=create");
                 break;
             case "update":
                 int idCategory1 = Integer.parseInt(request.getParameter("category"));

@@ -111,7 +111,9 @@
             <c:if test="${success == 'delete'}" >
                 alert("Delete success");
             </c:if>
-            alert("Update database success");
+            <c:if test="${success == 'create'}" >
+                alert("add success");
+            </c:if>
         </c:if>
     </script>
 </body>
